@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# The raw dataset images stay out of git entirely, not weights. If you also
+# want the dataset itself in the repo, track it through Git LFS the same way
+# *.pt is (see .gitattributes).
+data/
+
+# Local dataset config, path is machine-specific
+data.yaml
+classes.txt
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Note: runs/ and *.pt are intentionally NOT ignored. Checkpoint and weight
+# files (*.pt) are tracked through Git LFS instead, see .gitattributes.
+
+
+data/
+
+
+node_modules/
+runs/detect/train/weights/epoch*.pt
+runs/detect/train/weights/last.pt
+
+*.mp4

@@ -1,0 +1,15 @@
+name: defect-detection-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      # ultralytics pulls in torch, torchvision, opencv, numpy automatically.
+      # This installs the CPU build of torch by default, which is exactly
+      # what you want given no GPU is available right now. See README for
+      # the one-line upgrade command to add GPU support later without
+      # recreating this environment from scratch.
+      - ultralytics>=8.3.0
+      - pyyaml>=6.0

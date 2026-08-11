@@ -1,0 +1,4 @@
+# Model weight files go through Git LFS, not stored directly in git history.
+# This covers the base pretrained model (yolo11s.pt) and every checkpoint
+# saved during training (last.pt, best.pt, epochN.pt), wherever they live.
+*.pt filter=lfs diff=lfs merge=lfs -text

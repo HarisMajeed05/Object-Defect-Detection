@@ -1,22 +1,8 @@
 # Defect Detection, Training and Deployment
 
 Detects normal vs defective objects (fruit, bottles, or anything else with a
-visible good/bad distinction) using a custom trained YOLO model. Same
-CPU-first training pipeline as the coin detection project, checkpointing,
-Ctrl+C safe resume, GPU toggle, plus a script to collapse any multi-class
+visible good/bad distinction) using a custom trained YOLO model. Ctrl+C safe resume, GPU toggle, plus a script to collapse any multi-class
 defect dataset down to a simple binary normal/defect scheme.
-
-## About the VEO3 angle in the reference material
-
-Worth being upfront about this: the LinkedIn post that inspired this project
-shows Google DeepMind's Veo3 (a video generation model) being used to create
-the demo footage, real industrial defect footage at that quality and variety
-is genuinely hard to get access to. This project does not attempt to
-generate synthetic training footage, that's a different, much larger effort
-involving a video generation model, frame extraction, and manual labeling of
-generated content. Instead, this points you at real, existing labeled
-datasets below, and gives you the tools to train on them or on your own
-photos.
 
 ## 1. Setup
 
@@ -64,10 +50,7 @@ separate single-object models would.
 **Added as the highest-usage defect dataset found:** Welding Defect Detection
 by Final Year Project, 408 images, 553 downloads/uses at the time this was
 written, the highest of any defect detection dataset found across a search
-of Roboflow Universe's defect category (compare: your Parcels with Defect
-dataset above has 66). Worth being precise about this, that's the highest
-found in that search, not a claim of having audited all 300+ defect datasets
-on the platform:
+of Roboflow Universe's defect category.
 https://universe.roboflow.com/final-year-project-kswbt/welding-defect-detection
 
 ### Downloading each one
@@ -154,20 +137,10 @@ Same overlay as before, bounding box, class label, confidence, FPS, object
 count, matching the visual style in the reference screenshots (green for
 normal, a distinct color for defect, driven automatically by class id).
 
-## The honest caveat from the reference material
-
-The original post is direct about this and it's worth repeating here: real
-grading lines aren't as clean as demo footage. Varying lighting, motion
-blur, and partial occlusion between fast-moving objects will hurt accuracy
-more than any of the datasets above will prepare you for on their own.
-Expect to need your own photos from the actual environment you're deploying
-into, at the actual lighting and camera angle, before this is genuinely
-production ready, not just working on holdout validation images that look
-like the training set.
 
 ## Push to GitHub with LFS
 
-Same setup as the coin detection project, checkpoints and weights go
+Checkpoints and weights go
 through Git LFS (`.gitattributes` already configured for `*.pt`), the raw
 dataset stays out of git via `.gitignore`.
 
